@@ -28,7 +28,6 @@ function forFormSubmit(event: Event): void {
     photoUrl: $formElements.photoUrl.value,
     notes: $formElements.notes.value,
   };
-  // console.log('$formObject:', formObject);
   formObject.entryId = data.nextEntryId;
   data.nextEntryId++;
   data.entries.push(formObject);

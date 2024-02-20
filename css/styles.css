@@ -1,0 +1,35 @@
+header {
+  background-color: rgb(74, 54, 129);
+  color: white;
+  margin: 0;
+  padding: 3px;
+}
+
+main.container {
+  background-color: #f5f5f5;
+}
+
+input,
+textarea {
+  border-radius: 4px;
+  width: 100%;
+  text-align: left;
+  border-color: #e0e0e0;
+  border-style: solid;
+  padding: 8px;
+}
+
+button {
+  background-color: rgb(74, 54, 129);
+  color: white;
+  padding: 8px;
+  border-radius: 4px;
+}
+
+.button-container {
+  text-align: right;
+}
+
+img {
+  width: 100%;
+}

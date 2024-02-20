@@ -15,12 +15,68 @@
     <link rel="stylesheet" href="css/layout.css" />
     <link rel="stylesheet" href="css/styles.css" />
   </head>
+
   <body>
     <header>
-      <div class="container"></div>
+      <div class="container">
+        <h1>Code Journal</h1>
+      </div>
     </header>
     <main class="container">
-      <div data-view="entry-form"></div>
+      <div data-view="entry-form">
+        <form>
+          <div class="row">
+            <div class="column-full">
+              <h1>New Entry</h1>
+            </div>
+          </div>
+          <div class="row">
+            <div class="column-full column-half">
+              <div class="image-container">
+                <img
+                  class="image"
+                  src="images/placeholder-image-square.jpg"
+                  alt="placeholder-image" /><br /><br />
+              </div>
+            </div>
+            <div class="column-full column-half">
+              <div class="">
+                <label for="title">Title</label><br /><br />
+                <input
+                  type="text"
+                  placeholder=""
+                  id="title"
+                  name="user-title" /><br /><br />
+              </div>
+              <div class="">
+                <label for="photoUrl">Photo URL</label><br /><br />
+                <input
+                  type="url"
+                  placeholder=""
+                  id="photoUrl"
+                  name="user-photo-url" /><br /><br />
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="column-full">
+              <label for="notes">Notes</label><br /><br />
+              <div>
+                <textarea
+                  name="notes"
+                  placeholder=""
+                  id="notes"
+                  cols="30"
+                  rows="8"></textarea
+                ><br /><br />
+              </div>
+            </div>
+          </div>
+          <div class="button-container">
+            <button type="submit">SAVE</button>
+          </div>
+        </form>
+      </div>
       <div data-view="entries" class="hidden"></div>
     </main>
     <script src="js/data.js"></script>

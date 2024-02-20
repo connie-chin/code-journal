@@ -18,11 +18,30 @@ function forFormSubmit(event) {
     photoUrl: $formElements.photoUrl.value,
     notes: $formElements.notes.value,
   };
-  // console.log('$formObject:', formObject);
-  formObject['entryId'] = data.nextEntryId;
+  formObject.entryId = data.nextEntryId;
   data.nextEntryId++;
   data.entries.push(formObject);
   $image?.setAttribute('src', 'images/placeholder-image-square.jpg');
   $form.reset();
 }
 $form.addEventListener('submit', forFormSubmit);
+function renderEntry(entry) {
+  console.log('entry:', entry);
+  const $row = document.createElement('li');
+  $row.setAttribute('class', 'row');
+  const $image = document.createElement('img');
+  $image.setAttribute('class', 'column-full column-half');
+  $image.setAttribute('src', entry.photoUrl);
+  // $image.setAttribute('alt', entry.notes);
+  $row.append($image);
+  const $p = document.createElement('p');
+  $p.setAttribute('class', 'column-full column-half');
+  const $b = document.createElement('b');
+  $b.textContent = `${entry.title}`;
+  $p.append($b);
+  const $em = document.createElement('em');
+  $em.textContent = `${entry.notes}`;
+  $p.append($em);
+  $row.append($p);
+  return $row;
+}

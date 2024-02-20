@@ -36,3 +36,27 @@ function forFormSubmit(event: Event): void {
 }
 
 $form.addEventListener('submit', forFormSubmit);
+
+function renderEntry(entry): HTMLUListElement {
+  console.log('entry:', entry);
+  const $row = document.createElement('li');
+  $row.setAttribute('class', 'row');
+
+  const $image = document.createElement('img');
+  $image.setAttribute('class', 'column-full column-half');
+  $image.setAttribute('src', entry.photoUrl);
+  $row.append($image);
+
+  const $p = document.createElement('p');
+  $p.setAttribute('class', 'column-full column-half');
+  const $b = document.createElement('b');
+  $b.textContent = `${entry.title}`;
+  $p.append($b);
+  const $em = document.createElement('em');
+  $em.textContent = `${entry.notes}`;
+  $p.append($em);
+  $row.append($p);
+  return $row;
+}
+
+console.log(renderEntry(data.entries[0]));

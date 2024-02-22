@@ -44,10 +44,8 @@ function forFormSubmit(event: Event): void {
 $form.addEventListener('submit', forFormSubmit);
 
 function renderEntry(entry): HTMLUListElement {
-  // const $ul = document.createElement('ul');
   const $row = document.createElement('li');
   $row.setAttribute('class', 'row');
-  // $ul.append($row);
 
   const $image = document.createElement('img');
   $image.setAttribute('class', 'column-full column-half');

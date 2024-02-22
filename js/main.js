@@ -31,10 +31,8 @@ function forFormSubmit(event) {
 }
 $form.addEventListener('submit', forFormSubmit);
 function renderEntry(entry) {
-  // const $ul = document.createElement('ul');
   const $row = document.createElement('li');
   $row.setAttribute('class', 'row');
-  // $ul.append($row);
   const $image = document.createElement('img');
   $image.setAttribute('class', 'column-full column-half');
   $image.setAttribute('src', entry.photoUrl);
@@ -52,7 +50,7 @@ function renderEntry(entry) {
   $row.append($p);
   return $row;
 }
-function forDomContentLoaded(event) {
+function forDomContentLoaded() {
   for (let i = 0; i < data.entries.length; i++) {
     const returnVal = renderEntry(data.entries[i]);
     $ul.append(returnVal);

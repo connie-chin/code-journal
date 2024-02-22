@@ -19,11 +19,16 @@
   <body>
     <header>
       <div class="container">
-        <h1>Code Journal</h1>
+        <h1>
+          Code Journal
+          <span>
+            <a href="#" class="entriesLink">Entries</a>
+          </span>
+        </h1>
       </div>
     </header>
     <main class="container">
-      <div data-view="entry-form" class="hidden">
+      <div data-view="entry-form" id="entryForm_">
         <form>
           <div class="row">
             <div class="column-full">
@@ -77,38 +82,13 @@
           </div>
         </form>
       </div>
-      <div data-view="entries">
+      <div data-view="entries" id="entries_">
+        <div class="row entries-column">
+          <h1>Entries</h1>
+          <a href="#" class="buttonLink">NEW</a>
+        </div>
         <ul>
-          <li class="row">
-            <img
-              src="https://www.tripsavvy.com/thmb/LV2L-EE5Q4uZxwR-iF9hPbnhlos=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/LakeLouise_GettyImages-6b1e83ecabbb423c9cc66ea024c0e6bf.jpg"
-              alt="lakeLouise"
-              class="column-full column-half" />
-            <p class="column-full column-half">
-              <b>A beautiful place</b><br /><br />
-              <em>Must visit destination</em>
-            </p>
-          </li>
-          <li class="row">
-            <img
-              class="column-full column-half"
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcENFP7mBamltGMCj6vvpEHu0lkXYVyK1KGw&usqp=CAU"
-              alt="canadianLake" />
-            <p class="column-full column-half">
-              <b>Recent want list</b><br /><br />
-              <em>Need to visit canada</em>
-            </p>
-          </li>
-          <li class="row">
-            <img
-              class="column-full column-half"
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmNsChhSngOp1k45PSKnh_BJunzsNh5ZaSyA&usqp=CAU"
-              alt="calgaryLake" />
-            <p class="column-full column-half">
-              <b>Calgary Lake</b><br /><br />
-              <em>Adding to summer list too</em>
-            </p>
-          </li>
+          <li class="hidden">No entries have been recorded.</li>
         </ul>
       </div>
     </main>

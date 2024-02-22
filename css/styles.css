@@ -33,3 +33,28 @@ button {
 img {
   width: 100%;
 }
+
+.entriesLink {
+  font-size: 18px;
+  color: white;
+  text-decoration: none;
+}
+
+.hidden {
+  display: none;
+}
+
+.row.entries-column {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.buttonLink {
+  background-color: rgb(74, 54, 129);
+  color: white;
+  padding: 4px;
+  height: 30%;
+  border-radius: 5px;
+  display: flex;
+  justify-content: flex-end;
+}

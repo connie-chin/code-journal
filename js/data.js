@@ -7,7 +7,7 @@ let data = {
   nextEntryId: 1,
 };
 const previousDataJSON = localStorage.getItem('javascript-local-storage');
-function forBeforeUnload(event) {
+function forBeforeUnload() {
   const dataJSON = JSON.stringify(data);
   localStorage.setItem('javascript-local-storage', dataJSON);
 }

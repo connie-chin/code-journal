@@ -1,5 +1,4 @@
 /* exported data */
-
 let data = {
   view: 'entry-form',
   entries: [],
@@ -7,14 +6,11 @@ let data = {
   nextEntryId: 1,
 };
 const previousDataJSON = localStorage.getItem('javascript-local-storage');
-
 function forBeforeUnload(): void {
   const dataJSON = JSON.stringify(data);
   localStorage.setItem('javascript-local-storage', dataJSON);
 }
-
 window.addEventListener('beforeunload', forBeforeUnload);
-
 if (previousDataJSON !== null) {
   data = JSON.parse(previousDataJSON);
 }

@@ -63,6 +63,40 @@ function forFormSubmit(event: Event): void {
 $form.addEventListener('submit', forFormSubmit);
 
 function renderEntry(entry): HTMLUListElement {
+  // const $row = document.createElement('li');
+  // $row.setAttribute('class', 'row');
+  // $row.setAttribute('data-entry-id', entry.entryId);
+  // const $image = document.createElement('img');
+  // $image.setAttribute('class', 'column-full column-half');
+  // $image.setAttribute('src', entry.photoUrl);
+  // $row.append($image);
+
+  // const $p = document.createElement('p');
+  // $p.setAttribute('class', 'column-full column-half');
+
+  // const $div1 = document.createElement('div');
+
+  // const $b = document.createElement('b');
+  // $b.textContent = `${entry.title}`;
+  // $div1.append($b);
+  // $p.append($div);
+
+  // const $div2 = document.createElement('div');
+  // const $i = document.createElement('i');
+  // $i.setAttribute('class', 'fa-solid fa-pencil');
+  // $div2.append($i);
+  // $p.append($div2);
+  // // const $br = document.createElement('br');
+  // // $b.append($br);
+  // const $div3 = document.createElement('div');
+  // const $em = document.createElement('em');
+  // $em.textContent = `${entry.notes}`;
+  // $div3.append($em);
+  // // const $br = document.createElement('br');
+  // // $em.prepend($br);
+  // $p.append($div3);
+  // $row.append($p);
+  // return $row;
   const $row = document.createElement('li');
   $row.setAttribute('class', 'row');
   $row.setAttribute('data-entry-id', entry.entryId);
@@ -91,7 +125,7 @@ function renderEntry(entry): HTMLUListElement {
 function forDomContentLoaded(): void {
   for (let i = 0; i < data.entries.length; i++) {
     const returnVal = renderEntry(data.entries[i]);
-    $ul.append(returnVal);
+    $ul?.prepend(returnVal);
   }
   const currentView = data.view;
   viewSwap(currentView);
@@ -135,6 +169,22 @@ $entryLink.addEventListener('click', forEntriesLink);
 //   viewSwap('entry-form');
 //   console.log('new clicked');
 // }
+
+function forEntryForm(): void {
+  data.editing = null; // Clear the editing state
+
+  // Explicitly reset form fields and header
+  $formImage.setAttribute('src', 'images/placeholder-image-square.jpg'); // Adjust the src as necessary
+  $entryTitle.value = '';
+  $photoUrlInput.value = '';
+  $notes.value = '';
+  $newEntryHeader.textContent = 'New Entry';
+
+  // Finally, switch to the entry form view
+  viewSwap('entry-form');
+  console.log('New entry form setup complete.');
+}
+
 $buttonLink.addEventListener('click', forEntryForm);
 const $formImage = document.querySelector('.image');
 const $entryTitle = document.getElementById('title');
@@ -172,18 +222,3 @@ function handleClick(event: Event): void {
   }
 }
 $ul.addEventListener('click', handleClick);
-
-function forEntryForm(): void {
-  data.editing = null; // Clear the editing state
-
-  // Explicitly reset form fields and header
-  $formImage.setAttribute('src', 'images/placeholder-image-square.jpg'); // Adjust the src as necessary
-  $entryTitle.value = '';
-  $photoUrlInput.value = '';
-  $notes.value = '';
-  $newEntryHeader.textContent = 'New Entry';
-
-  // Finally, switch to the entry form view
-  viewSwap('entry-form');
-  console.log('New entry form setup complete.');
-}

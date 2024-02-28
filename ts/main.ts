@@ -43,6 +43,7 @@ function forFormSubmit(event: Event): void {
     data.entries.unshift(formObject);
     $ul?.prepend(renderEntry(formObject));
   } else {
+    formObject.entryId = data.editing.entryId;
     data.entries = data.entries.map((entry) => {
       if (entry.entryId === formObject.entryId) {
         return formObject;
@@ -62,7 +63,7 @@ function forFormSubmit(event: Event): void {
       if (!$heading1) throw new Error('This $heading2 query failed');
       $heading1.textContent = 'New Entry';
     }
-    data.editing = null; // why
+    data.editing = null;
   }
   if (!$image) throw new Error('The $image query failed');
   $image.src = './images/placeholder-image-square.jpg';
@@ -75,40 +76,6 @@ function forFormSubmit(event: Event): void {
 $form.addEventListener('submit', forFormSubmit);
 
 function renderEntry(entry: Entry): HTMLLIElement {
-  // const $row = document.createElement('li');
-  // $row.setAttribute('class', 'row');
-  // $row.setAttribute('data-entry-id', entry.entryId);
-  // const $image = document.createElement('img');
-  // $image.setAttribute('class', 'column-full column-half');
-  // $image.setAttribute('src', entry.photoUrl);
-  // $row.append($image);
-
-  // const $p = document.createElement('p');
-  // $p.setAttribute('class', 'column-full column-half');
-
-  // const $div1 = document.createElement('div');
-
-  // const $b = document.createElement('b');
-  // $b.textContent = `${entry.title}`;
-  // $div1.append($b);
-  // $p.append($div);
-
-  // const $div2 = document.createElement('div');
-  // const $i = document.createElement('i');
-  // $i.setAttribute('class', 'fa-solid fa-pencil');
-  // $div2.append($i);
-  // $p.append($div2);
-  // // const $br = document.createElement('br');
-  // // $b.append($br);
-  // const $div3 = document.createElement('div');
-  // const $em = document.createElement('em');
-  // $em.textContent = `${entry.notes}`;
-  // $div3.append($em);
-  // // const $br = document.createElement('br');
-  // // $em.prepend($br);
-  // $p.append($div3);
-  // $row.append($p);
-  // return $row;
   const $row = document.createElement('li');
   $row.setAttribute('class', 'row');
   $row.setAttribute('data-entry-id', entry.entryId.toString());
@@ -116,24 +83,25 @@ function renderEntry(entry: Entry): HTMLLIElement {
   $image.setAttribute('class', 'column-full column-half');
   $image.setAttribute('src', entry.photoUrl);
   $row.append($image);
-  const $p = document.createElement('p');
-  $p.setAttribute('class', 'column-full column-half');
+  const $div = document.createElement('div');
+  $div.setAttribute('class', 'column-full column-half');
+
+  const $div2 = document.createElement('div');
+  $div2.setAttribute('class', 'pencilSpace');
   const $b = document.createElement('b');
   $b.textContent = `${entry.title}`;
-  $p.append($b);
+  $div2.append($b);
   const $i = document.createElement('i');
   $i.setAttribute('class', 'fa-solid fa-pencil');
-  $p.append($i);
-  // const $br = document.createElement('br');
-  // $b.append($br);
+  $div2.append($i);
+  $div.append($div2);
   const $em = document.createElement('em');
   $em.textContent = `${entry.notes}`;
-  const $br = document.createElement('br');
-  $em.prepend($br);
-  $p.append($em);
-  $row.append($p);
+  $div.append($em);
+  $row.append($div);
   return $row;
 }
+
 function forDomContentLoaded(): void {
   for (let i = 0; i < data.entries.length; i++) {
     const returnVal = renderEntry(data.entries[i]);
@@ -156,6 +124,7 @@ function toggleNoEntries(): void {
     $noEntries.classList.add('no-entries');
   }
 }
+
 const $entryForm = document.querySelector('#entryForm_');
 if (!$entryForm) throw new Error('This $entryForm query failed');
 const $entries = document.querySelector('#entries_');
@@ -180,22 +149,8 @@ function forEntriesLink(): void {
   viewSwap('entries');
 }
 $entryLink.addEventListener('click', forEntriesLink);
-// function forEntryForm(): void {
-//   viewSwap('entry-form');
-//   console.log('new clicked');
-// }
 
 function forEntryForm(): void {
-  // data.editing = null; // Clear the editing state
-
-  // Explicitly reset form fields and header
-  // $formImage.setAttribute('src', 'images/placeholder-image-square.jpg'); // Adjust the src as necessary
-  // $entryTitle.value = '';
-  // $photoUrlInput.value = '';
-  // $notes.value = '';
-  // $newEntryHeader.textContent = 'New Entry';
-
-  // Finally, switch to the entry form view
   viewSwap('entry-form');
   console.log('New entry form setup complete.');
 }

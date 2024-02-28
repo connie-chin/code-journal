@@ -32,6 +32,7 @@ button {
 
 img {
   width: 100%;
+  margin-bottom: 10px;
 }
 
 .entriesLink {
@@ -59,4 +60,14 @@ img {
   padding: 4px;
   height: 30%;
   border-radius: 5px;
+}
+
+.pencilSpace {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+ul > li {
+  margin-bottom: 10px;
 }
